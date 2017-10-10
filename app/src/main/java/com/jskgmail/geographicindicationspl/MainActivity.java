@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
                     return true;
                 case R.id.navigation_notifications:
-
+                    Intent ii=new Intent(MainActivity.this,Main3Activity.class);
+                    startActivity(ii);
                     return true;
             }
             return false;

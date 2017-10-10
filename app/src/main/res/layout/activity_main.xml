@@ -75,7 +75,7 @@
         android:id="@+id/imageView9"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="109dp"
         app:srcCompat="@android:drawable/ic_dialog_alert"
         android:layout_below="@+id/textView12"
         android:layout_alignStart="@+id/textView12" />
@@ -107,5 +107,13 @@
         android:layout_below="@+id/imageView8"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/okkkk"
+        android:layout_below="@+id/switch2"
+        android:layout_alignStart="@+id/switch2" />
 
 </RelativeLayout>
