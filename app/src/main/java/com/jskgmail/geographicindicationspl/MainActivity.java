@@ -10,12 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 
-import com.bumptech.glide.Glide;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -25,9 +23,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    ListViewAdapter lviewAdapter;
+    private ArrayList<String> stringArrayList, stringArrayList1;
+    private ArrayList<StorageReference> stringArrayList2;
 
-
-    private StorageReference mStorageRef;
+    private static StorageReference mStorageRef;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -99,22 +99,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        stringArrayList = new ArrayList<String>();
+
+
+        stringArrayList1 = new ArrayList<String>();
+        stringArrayList2 = new ArrayList<StorageReference>();
+
+
+        ListView l=(ListView)findViewById(R.id.lv);
 
 
 
 
-
-
-
-
-
-
-
-
-        StorageReference riversRef = mStorageRef.child("gitea.jpg");
-        StorageReference riversRef3 = mStorageRef.child("ks.jpg");
-        StorageReference riversRef4 = mStorageRef.child("no.jpg");
-        StorageReference riversRef2 = mStorageRef.child("ped.jpg");
+  StorageReference  riversRef = mStorageRef.child("gitea.jpg");
+        StorageReference riversRef2 = mStorageRef.child("ks.jpg");
+        StorageReference riversRef3 = mStorageRef.child("no.jpg");
+        final StorageReference riversRef4 = mStorageRef.child("ped.jpg");
         final ProgressBar progress=(ProgressBar)findViewById(R.id.progressBar5) ;
         progress.setIndeterminate(true);
         riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -147,8 +147,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
-                progress.setIndeterminate(false);
-                progress.setVisibility(View.GONE);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -160,8 +159,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
-                progress.setIndeterminate(false);
-                progress.setVisibility(View.GONE);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -170,30 +168,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView imageView=(ImageView)findViewById(R.id.imageView6);
-        Glide.with(getApplicationContext())
-                .using(new FirebaseImageLoader())
-                .load(riversRef)
-                .into(imageView);
+
+        stringArrayList.add("Darjeeling Tea");
+        stringArrayList1.add("Champagne of Teas ");
+        stringArrayList2.add(riversRef);
 
 
-        ImageView imageView3=(ImageView)findViewById(R.id.imageView8);
-        Glide.with(getApplicationContext())
-                .using(new FirebaseImageLoader())
-                .load(riversRef3)
-                .into(imageView3);
-        ImageView imageView4=(ImageView)findViewById(R.id.imageView9);
-        Glide.with(getApplicationContext())
-                .using(new FirebaseImageLoader())
-                .load(riversRef4)
-                .into(imageView4);
-        ImageView imageView2=(ImageView)findViewById(R.id.imageView7);
-        Glide.with(getApplicationContext())
-                .using(new FirebaseImageLoader())
-                .load(riversRef2)
-                .into(imageView2);
+        stringArrayList.add("Kullu Shawl");
+        stringArrayList1.add("Designed both ends");
+        stringArrayList2.add(riversRef2);
 
 
+
+        stringArrayList.add("Nagpur Oranges");
+        stringArrayList1.add("Direct from Orange City");
+        stringArrayList2.add(riversRef3);
+
+        stringArrayList.add("Mathura Peda");
+        stringArrayList1.add("Sweet unique Delicacy of Karnataka");
+        stringArrayList2.add(riversRef4);
+
+
+
+        lviewAdapter = new ListViewAdapter(this, stringArrayList, stringArrayList1, stringArrayList2);
+        l.setAdapter(lviewAdapter);
+
+l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent=new Intent(MainActivity.this,Main22Activity.class);
+        String ok;
+        if(position==0) ok="Darjeeling Tea";
+       else if(position==1) ok="Kullu Shawl";
+        else if(position==2) ok="Mathura Peda";
+        else  ok="Nagpur Orange";
+        intent.putExtra("name",ok);
+        startActivity(intent);
+
+    }
+});
     }
 
 

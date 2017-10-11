@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jskgmail.geographicindicationspl.Main22Activity">
+
+    <RelativeLayout
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="79dp"
+            android:layout_above="@+id/textView11"
+            android:layout_alignStart="@+id/button2" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_above="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:background="?android:attr/colorControlHighlight"
+            app:srcCompat="@mipmap/ks" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/button3"
+            android:background="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text=" Select your design "
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="Buy Now"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/button2"
+            android:background="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text=" Add to Cart "
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button2"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="9dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="4dp"
+            android:text="Show More"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/textView3"
+            android:text="₹ 250 /-"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
