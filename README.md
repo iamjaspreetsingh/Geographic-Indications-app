@@ -7,3 +7,5 @@ The special features include the options like
 
 Have used firebase database and storage for job sector and images respectively <br>
 Have used horizontal scroller for images
+
+The app is incomplete in many senses. It is just ideas and features implemented.Its UI is needs to be improved. 
